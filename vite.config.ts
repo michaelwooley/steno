@@ -39,6 +39,7 @@ const config: UserConfig = {
     coverage: {
       exclude: ["setupTest.js", "src/mocks"],
       provider: "c8",
+      reporter: ["cobertura", "text", "json"],
     },
     deps: {
       // Put Svelte component here, e.g., inline: [/svelte-multiselect/, /msw/]
