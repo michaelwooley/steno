@@ -20,9 +20,18 @@ cd steno
 
 npm i
 cargo tauri dev
+
+
 ```
 
 
+## Testing
+
+
+```bash
+npm test
+cargo test --manifest-path=src-tauri/Cargo.toml
+```
 
 
 ## Recommended IDE Setup
