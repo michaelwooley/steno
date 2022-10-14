@@ -27,6 +27,16 @@ const config: UserConfig = {
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
   },
+  optimizeDeps: {
+    exclude: [
+      // "codemirror",
+      // "@codemirror/lang-markdown",
+      // "@codemirror/language-data",
+      // "@codemirror/theme-one-dark",
+      // "@codemirror/language",
+      // "@codemirror/view",
+    ],
+  },
   test: {
     // jest like globals
     globals: true,

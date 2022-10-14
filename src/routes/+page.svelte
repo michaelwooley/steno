@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+  import CodeMirrorMarkdownExample from "$containers/CodeMirrorMarkdownExample.svelte";
   import Greet from "$lib/Greet.svelte";
 </script>
 
@@ -15,6 +16,8 @@
     <img src="/svelte.svg" class="logo svelte" alt="Svelte Logo" />
   </a>
 </div>
+
+<CodeMirrorMarkdownExample />
 
 <p>Click on the Tauri, Vite, and Svelte logos to learn more.</p>
 
