@@ -9,7 +9,19 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "types": ["vitest/globals", "vitest/importMeta", "@testing-library/jest-dom"]
+    "types": [
+      "vitest/globals",
+      "vitest/importMeta",
+      "@testing-library/jest-dom"
+    ],
+    "paths": {
+      "$containers": ["src/containers"],
+      "$containers/*": ["src/containers/*"],
+      "$components": ["src/components"],
+      "$components/*": ["src/components/*"],
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"]
+    }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //

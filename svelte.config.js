@@ -9,6 +9,10 @@ const config = {
 
   kit: {
     adapter: staticAdapter(),
+    alias: {
+      '$components': './src/components',
+      '$containers': './src/containers',
+    }
   },
 };
 
