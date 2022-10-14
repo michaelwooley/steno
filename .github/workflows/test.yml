@@ -64,6 +64,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
+        if: matrix.platform == 'ubuntu-latest'
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
