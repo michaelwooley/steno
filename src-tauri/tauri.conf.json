@@ -61,6 +61,12 @@
         "title": "steno",
         "width": 800
       }
-    ]
+    ],
+    "pattern": {
+      "use": "isolation",
+      "options": {
+        "dir": "../build-isolation"
+      }
+    }
   }
 }
