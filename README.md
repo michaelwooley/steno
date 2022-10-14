@@ -1,4 +1,6 @@
-# Svelte-Kit + Vite
+# ⌨️ steno
+
+[![Test](https://github.com/michaelwooley/steno/actions/workflows/test.yml/badge.svg)](https://github.com/michaelwooley/steno/actions/workflows/test.yml) [![Release](https://github.com/michaelwooley/steno/actions/workflows/release.yml/badge.svg?event=release)](https://github.com/michaelwooley/steno/actions/workflows/release.yml)
 
 This template should help get you started developing with Tauri and Svelte-Kit in Vite.
 
