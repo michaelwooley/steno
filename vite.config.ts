@@ -28,14 +28,14 @@ const config: UserConfig = {
     sourcemap: !!process.env.TAURI_DEBUG,
   },
   optimizeDeps: {
-    exclude: [
-      // "codemirror",
-      // "@codemirror/lang-markdown",
-      // "@codemirror/language-data",
-      // "@codemirror/theme-one-dark",
-      // "@codemirror/language",
-      // "@codemirror/view",
-    ],
+    // include: [
+    //   "codemirror",
+    //   "@codemirror/lang-markdown",
+    //   "@codemirror/language-data",
+    //   "@codemirror/theme-one-dark",
+    //   "@codemirror/language",
+    //   "@codemirror/view",
+    // ],
   },
   test: {
     // jest like globals
