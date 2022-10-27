@@ -5,12 +5,16 @@ on:
       - 'v*'
   workflow_dispatch:
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   release:
     strategy:
       fail-fast: false
       matrix:
         platform: [macos-10.15, ubuntu-latest, windows-latest]
+
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -21,15 +25,14 @@ jobs:
         with:
           toolchain: stable
           target: wasm32-unknown-unknown
+          override: true
       - name: Install trunk
         uses: jetli/trunk-action@v0.1.0
         with:
           version: 'latest'
       - uses: jetli/wasm-bindgen-action@v0.1.0
         with:
-          # Optional version of wasm-bindgen to install(eg. '0.2.68', 'latest')
           version: 'latest'
-
       - name: install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-latest'
         run: |
