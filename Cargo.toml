@@ -12,6 +12,7 @@ wasm-bindgen = { version = "0.2.82", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.32"
 web-sys = "0.3.59"
 yew = "0.19"
+yew-router = "0.16"
 
 [workspace]
 members = ["src-tauri"]
