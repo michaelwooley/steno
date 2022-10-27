@@ -2,36 +2,26 @@
 
 [![Test](https://github.com/michaelwooley/steno/actions/workflows/test.yml/badge.svg)](https://github.com/michaelwooley/steno/actions/workflows/test.yml) [![Release](https://github.com/michaelwooley/steno/actions/workflows/release.yml/badge.svg?event=release)](https://github.com/michaelwooley/steno/actions/workflows/release.yml)
 
-This template should help get you started developing with Tauri and Svelte-Kit in Vite.
-
 # Development
 
-In addition to [prereqs](https://tauri.app/v1/guides/getting-started/prerequisites), go ahead and:
 
-
-```bash
-cargo install tauri-cli # Use for dev
-```
-
-To run locally:
+Initial setup:
 
 ```bash
-git clone ...
-
+git clone git@github.com:michaelwooley/steno.git
 cd steno
 
-npm i
+rustup target add wasm32-unknown-unknown
+cargo install --locked trunk
+cargo install wasm-bindgen-cli
+```
+
+To develop:
+
+```bash
 cargo tauri dev
 ```
 
-
-## Testing
-
-
-```bash
-npm test
-cargo test --manifest-path=src-tauri/Cargo.toml
-```
 
 
 ## CI Notes
@@ -47,5 +37,4 @@ https://github.com/tauri-apps/tauri-action
 
 ## Recommended IDE Setup
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
-
+[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).

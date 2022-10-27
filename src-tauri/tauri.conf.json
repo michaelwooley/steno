@@ -1,10 +1,10 @@
 {
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "trunk serve",
+    "beforeBuildCommand": "trunk build",
     "devPath": "http://localhost:1420",
-    "distDir": "../build",
-    "withGlobalTauri": false
+    "distDir": "../dist",
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "steno",
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "steno.com.tauri.dev",
+      "identifier": "com.steno-app.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -47,10 +47,6 @@
         "timestampUrl": ""
       }
     },
-    "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'",
-      "dangerousDisableAssetCspModification": false
-    },
     "updater": {
       "active": false
     },
@@ -63,11 +59,8 @@
         "width": 800
       }
     ],
-    "pattern": {
-      "use": "isolation",
-      "options": {
-        "dir": "../build-isolation"
-      }
+    "security": {
+      "csp": null
     }
   }
 }
