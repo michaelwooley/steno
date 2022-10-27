@@ -11,6 +11,46 @@ env:
 
 jobs:
   test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Swatinem/rust-cache@v1
+
+      - name: install Rust stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          override: true
+      - name: Install trunk
+        uses: jetli/trunk-action@v0.1.0
+        with:
+          version: 'latest'
+      - uses: jetli/wasm-bindgen-action@v0.1.0
+        with:
+          version: 'latest'
+
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+
+      - run: cargo check
+      - name: Run fmt
+        run: cargo fmt -- --check
+      - name: Run clippy
+        run: cargo clippy -- --deny=warnings
+
+      - name: test frontend
+        run: cargo test --manifest-path=Cargo.toml --verbose
+
+      - name: test backend
+        run: |
+          trunk build
+          cargo test --manifest-path=src-tauri/Cargo.toml --verbose
+
+  build:
     strategy:
       fail-fast: true
       matrix:
@@ -33,7 +73,6 @@ jobs:
           version: 'latest'
       - uses: jetli/wasm-bindgen-action@v0.1.0
         with:
-          # Optional version of wasm-bindgen to install(eg. '0.2.68', 'latest')
           version: 'latest'
 
       - name: install dependencies (ubuntu only)
@@ -41,25 +80,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
-
-      - name: Run check
-        run: cargo check
-        if: matrix.platform == 'ubuntu-latest'
-      - name: Run fmt
-        run: cargo fmt -- --check
-        if: matrix.platform == 'ubuntu-latest'
-      - name: Run clippy
-        run: cargo clippy -- --deny=warnings
-        if: matrix.platform == 'ubuntu-latest'
-
-      - name: test rust backend
-        run: cargo test --manifest-path=src-tauri/Cargo.toml --verbose
-        # if: matrix.platform == 'ubuntu-latest'
-        # TODO Figure out issue here.
-        if: false
-      - name: test rust frontend
-        run: cargo test  --verbose
-        if: matrix.platform == 'ubuntu-latest'
 
       - name: Build app
         uses: tauri-apps/tauri-action@dev
