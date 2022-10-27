@@ -23,8 +23,6 @@ To develop:
 cargo tauri dev
 ```
 
-
-
 ## CI Notes
 
 Based on:
@@ -35,6 +33,13 @@ Based on:
 https://tauri.app/v1/guides/faq#node-or-cargo
 
 https://github.com/tauri-apps/tauri-action
+
+## links
+
+- [tauri](https://tauri.app/)
+- [yew](https://yew.rs)
+  - [routing](https://yew.rs/docs/concepts/router)
+  - [Forms component](https://github.com/jfbilodeau/yew_form)
 
 ## Recommended IDE Setup
 
