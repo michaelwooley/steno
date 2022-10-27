@@ -48,7 +48,8 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'",
+      "dangerousDisableAssetCspModification": false
     },
     "updater": {
       "active": false
@@ -61,6 +62,12 @@
         "title": "yew",
         "width": 800
       }
-    ]
+    ],
+    "pattern": {
+      "use": "isolation",
+      "options": {
+        "dir": "../build-isolation"
+      }
+    }
   }
 }
