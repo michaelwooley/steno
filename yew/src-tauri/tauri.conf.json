@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "yew",
+    "productName": "steno",
     "version": "0.0.0"
   },
   "tauri": {
@@ -47,10 +47,6 @@
         "timestampUrl": ""
       }
     },
-    "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'",
-      "dangerousDisableAssetCspModification": false
-    },
     "updater": {
       "active": false
     },
@@ -59,15 +55,12 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "yew",
+        "title": "steno",
         "width": 800
       }
     ],
-    "pattern": {
-      "use": "isolation",
-      "options": {
-        "dir": "../build-isolation"
-      }
+    "security": {
+      "csp": null
     }
   }
 }
