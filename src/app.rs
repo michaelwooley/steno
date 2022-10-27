@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::spawn_local;
+use web_sys::FocusEvent;
 use yew::prelude::*;
 
 #[wasm_bindgen]
@@ -21,10 +22,9 @@ struct GreetArgs<'a> {
 #[function_component(App)]
 pub fn app() -> Html {
     let greet_input_ref = use_ref(NodeRef::default);
-
     let name = use_state(String::new);
-
     let greet_msg = use_state(String::new);
+
     {
         let greet_msg = greet_msg.clone();
         let name = name.clone();
@@ -51,7 +51,8 @@ pub fn app() -> Html {
 
     let greet = {
         let greet_input_ref = greet_input_ref.clone();
-        Callback::from(move |_| {
+        Callback::from(move |e: FocusEvent| {
+            e.prevent_default();
             name.set(
                 greet_input_ref
                     .cast::<web_sys::HtmlInputElement>()
@@ -63,29 +64,19 @@ pub fn app() -> Html {
 
     html! {
         <main class="container">
+            <h1>{"Steno"}</h1>
             <div class="row">
-                <a href="https://tauri.app" target="_blank">
-                    <img src="public/tauri.svg" class="logo tauri" alt="Tauri logo"/>
-                </a>
-                <a href="https://yew.rs" target="_blank">
-                    <img src="public/yew.png" class="logo yew" alt="Yew logo"/>
+                <a href="https://github.com/michaelwooley/steno" target="_blank">
+                    <img src="public/icon.png" class="logo" alt="Steno logo"/>
                 </a>
             </div>
-
-            <p>{"Click on the Tauri and Yew logos to learn more."}</p>
-
-            <p>
-                {"Recommended IDE setup: "}
-                <a href="https://code.visualstudio.com/" target="_blank">{"VS Code"}</a>
-                {" + "}
-                <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank">{"Tauri"}</a>
-                {" + "}
-                <a href="https://github.com/rust-lang/rust-analyzer" target="_blank">{"rust-analyzer"}</a>
-            </p>
-
+            <div class="row" style="border-bottom:1px solid #cccccc;margin:2rem;">
+            </div>
             <div class="row">
-                <input id="greet-input" ref={&*greet_input_ref} placeholder="Enter a name..." />
-                <button type="button" onclick={greet}>{"Greet"}</button>
+                <form onsubmit={greet}>
+                    <input id="greet-input" ref={&*greet_input_ref} placeholder="Enter a name and press enter..." />
+                    <button type="submit">{"Greet"}</button>
+                </form>
             </div>
 
             <p><b>{ &*greet_msg }</b></p>
