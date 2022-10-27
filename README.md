@@ -22,25 +22,7 @@ To develop:
 cargo tauri dev
 ```
 
-odl
 
-```
-   "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'",
-      "dangerousDisableAssetCspModification": false
-    },
-    "pattern": {
-      "use": "isolation",
-      "options": {
-        "dir": "../build-isolation"
-      }
-    }
-
-
-  "security": {
-      "csp": null
-    }
-```
 
 ## CI Notes
 
