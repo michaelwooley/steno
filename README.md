@@ -2,8 +2,9 @@
 
 [![Test](https://github.com/michaelwooley/steno/actions/workflows/test.yml/badge.svg)](https://github.com/michaelwooley/steno/actions/workflows/test.yml) [![Release](https://github.com/michaelwooley/steno/actions/workflows/release.yml/badge.svg?event=release)](https://github.com/michaelwooley/steno/actions/workflows/release.yml)
 
-# Development
+![Preview](./public/operation-preview.gif)
 
+# Development
 
 Initial setup:
 
