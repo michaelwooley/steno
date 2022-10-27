@@ -28,14 +28,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
 
-      # - name: lint
-      #   run: npm run check
-      #   if: matrix.platform == 'ubuntu-latest'
-
-      - name: test rust
-        run: cargo test --lib --manifest-path=src-tauri/Cargo.toml
+      - name: lint
+        run: echo "Will lint..."
         # if: matrix.platform == 'ubuntu-latest'
-        # if: false
+        if: false
+
+      - name: test rust backend
+        run: cargo test --manifest-path=src-tauri/Cargo.toml
+        if: matrix.platform == 'ubuntu-latest'
+
+      - name: test rust frontend
+        run: cargo test
+        if: matrix.platform == 'ubuntu-latest'
 
       - name: Build app
         uses: tauri-apps/tauri-action@dev
