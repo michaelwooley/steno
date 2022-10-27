@@ -48,6 +48,7 @@ jobs:
         run: |
           trunk build
           cargo test --manifest-path=src-tauri/Cargo.toml --verbose
+        if: false
 
   build:
     needs: test
